@@ -28,6 +28,32 @@ class Solution():
             p_0 = p_0 + 1
         return nums
 
+class Solution():
+    def moveZeros(self, nums):
+        slow = fast = 0
+        while fast < len(nums):
+            if nums[fast] != 0:
+                if slow != fast:
+                    nums[slow] = nums[fast]
+                    nums[fast] = 0
+                slow += 1
+            fast += 1
+        return nums
+
+# 判断一个链表是否有环
+class Solution:
+    def hasCycle(self, head: ListNode) -> bool:
+        if head == None or head.next == None:
+            return False
+        slow = head
+        fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                return True
+        return False
+
 def run():
     input = [0,1,0,3,12]
     solver = Solution()
