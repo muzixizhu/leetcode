@@ -52,4 +52,45 @@ class Solution_post:
         arrright = self.postorderTraversal(root.right)
         return arrleft + arrright + [root.val]
 
+class Solution_preorder_stack():
+    def preorder_stack(self, root):
+        ans = []
+        stack = []
+        while root or stack:
+            if root:
+                ans.append(root.val)
+                stack.append(root)
+                root = root.left
+            else:
+                node = stack.pop()
+                root = node
+        return ans
 
+class Solution_inorder():
+    def inorder_stack(self, root):
+        ans = []
+        stack = []
+        while root or stack:
+            while root:
+                stack.append(root)
+                root = root.left
+            node = stack.pop()
+            ans.append(node.val)
+            root = node.right
+        return ans
+
+class Soluton_3():
+    def postorder_stack(self,root):
+        ans = []
+        stack = []
+        while root or stack:
+            while root:
+                stack.append(root)
+                root = root.left if root.left else root.right
+            node = stack.pop()
+            ans.append(node.val)
+            if len(stack)>0 and stack[-1].left == node:
+                root = stack[-1].right
+            else:
+                root = None
+        return ans
