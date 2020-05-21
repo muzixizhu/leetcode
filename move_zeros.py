@@ -40,6 +40,18 @@ class Solution():
             fast += 1
         return nums
 
+    def movezeros(self, nums):
+        p_slow = p_fast = 0
+        while p_fast<len(nums):
+            if nums[p_fast] != 0:
+                if p_slow != p_fast:
+                    nums[p_slow] = nums[p_fast]
+                    nums[p_fast] = 0
+                p_slow += 1
+            p_fast += 1
+        return nums
+
+
 # 判断一个链表是否有环
 class Solution:
     def hasCycle(self, head: ListNode) -> bool:
