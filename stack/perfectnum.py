@@ -19,7 +19,6 @@ class Solution():
         visited = [False for _ in range(n+1)]
         visited[n] = True
 
-
         while any(q):
             num, step = q.pop()
             i = 1

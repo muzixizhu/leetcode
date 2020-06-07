@@ -14,11 +14,8 @@
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
         """
-
         :type nums: List[int]
-
         :rtype: bool
-
         """
         step = nums[0]
         for i in range(1, len(nums)):
